@@ -1,19 +1,22 @@
 
 
-{% load static %} 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}}</title>
-    <link rel="stylesheet" href="/static/nav.css"/>
-</head>
-<body>
 
-    <div class="topnav">
-        <a class="active" href="/rentals" >Rentals</a>
-        <a href="/story">our story</a>
-        <a href="/contact">Contact</a>
-        <a href="/book">Book </a>
-      </div>
+{% load static %} 
+
+<header style="background-color:#333; color:white; padding:10px 20px; display:flex; justify-content:space-between; align-items:center;">
+  <div style="font-size:24px; font-weight:bold;">MyLogo</div>
+
+  <nav id="navbar" style="display:flex; gap:20px;">
+    <a href="/rentals" style="color:white; text-decoration:none;">Rentals</a>
+    <a href="/story" style="color:white; text-decoration:none;">Story</a>
+    <a href="/book" style="color:white; text-decoration:none;">Book</a>
+    <a href="/contact" style="color:white; text-decoration:none;">Contact</a>
+  </nav>
+
+  <!-- Hamburger -->
+  <div onclick="toggleMenu()" style="display:none; flex-direction:column; cursor:pointer;" id="hamburger">
+    <span style="width:25px; height:3px; background:white; margin:4px 0;"></span>
+    <span style="width:25px; height:3px; background:white; margin:4px 0;"></span>
+    <span style="width:25px; height:3px; background:white; margin:4px 0;"></span>
+  </div>
+</header>
