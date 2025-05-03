@@ -13,26 +13,30 @@ Any Query shoot us an email
 
       <!-- Contact Form -->
       <div style="flex:1;min-width:300px;background:#fff;padding:20px;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,0.1);">
-        <form>
+        <form >
           <label style="display:block;margin-bottom:10px;font-weight:bold;">Name</label>
-          <input type="text" placeholder="Your Name" style="width:100%;padding:10px;margin-bottom:20px;border:1px solid #ccc;border-radius:4px;"/>
+          <input type="text" placeholder="Your Name"  name="nam" style="width:100%;padding:10px;margin-bottom:20px;border:1px solid #ccc;border-radius:4px;"/>
 
           <label style="display:block;margin-bottom:10px;font-weight:bold;">Email</label>
-          <input type="email" placeholder="Your Email" style="width:100%;padding:10px;margin-bottom:20px;border:1px solid #ccc;border-radius:4px;"/>
+          <input type="email" placeholder="Your Email"  name="email" style="width:100%;padding:10px;margin-bottom:20px;border:1px solid #ccc;border-radius:4px;"/>
 
           <label style="display:block;margin-bottom:10px;font-weight:bold;">Message</label>
-          <textarea placeholder="Your Message" rows="5" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:4px;"></textarea>
+          <textarea placeholder="Your Message" rows="5" name="msg"  style="width:100%;padding:10px;border:1px solid #ccc;border-radius:4px;"></textarea>
 
           <button type="submit" style="margin-top:20px;background:#333;color:#fff;padding:10px 20px;border:none;border-radius:4px;cursor:pointer;">Send Message</button>
         </form>
+        
+{% if success %}
+<p style="color:green;">Message sent successfully!</p>
+{% endif %}
       </div>
 
       <!-- Contact Info -->
       <div style="flex:1;min-width:300px;background:#fff;padding:20px;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,0.1);">
         <h3 style="margin-bottom:15px;">Get in Touch</h3>
-        <p style="margin-bottom:10px;">📍 123 Main Street, Your City</p>
-        <p style="margin-bottom:10px;">📞 +91 9876543210</p>
-        <p style="margin-bottom:10px;">✉️ support@yourdomain.com</p>
+        <p style="margin-bottom:10px;">📍 123 Main Street, MuradNagar</p>
+        <p style="margin-bottom:10px;">📞 +91 9891020649</p>
+        <p style="margin-bottom:10px;">✉️ palayushi293@gmail.com</p>
 
         <div style="margin-top:20px;">
           <h4>Follow Us</h4>
