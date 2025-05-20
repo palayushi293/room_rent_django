@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render # type: ignore
-
+from service.models import Term
 from django.core.mail import send_mail
 from django.conf import settings
 
@@ -12,10 +12,15 @@ def aboutUs(request):
 
 
 def home(request):
+    term=Term.objects.all()
     data={
-        'title':'Home Page'
+        'title':'Home Page',
+        'term':term
+        
         
     }
+   
+   
     return render(request,"index.html",data)
 
 
@@ -59,10 +64,12 @@ def book(request):
 
 def story(request):
 
-    Servicedata=Service.objects.all()
+    Servicedata=Service.objects.all().order_by('service_title') # for descending ('-service_title')
+    #Servicedata=Service.objects.all().order_by('service_title')[:3] for limit
     for a in Servicedata:
         print(a.service_title)
-    return render(request, "story.html")
+        data={'Servicedata': Servicedata}
+    return render(request, "story.html",data)
 
 
 def marks(request):

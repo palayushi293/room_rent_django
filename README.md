@@ -32,3 +32,18 @@ PALfamily@123
 
 
 thik hai ssb  ho gya ppr utna dikhana jitnaa hai bus uska liya model import in view
+
+
+template filte supose ki admin ma likth hua tag bna diya toh fir usko execute karna safe template filter
+in html file 1\upper  |loewr |capfirst
+
+tinymce
+pip install django-tinymce  add setting --> installed-->'tinymce'
+# suppose if you want to provide editor html for description so that tage are ther and full editor mode is there then 
+# from tinymce.models import HTMLField
+
+# service+Desc=HTMLField()
+in models.py in app (Service)
+
+
+Marquee Tag--> it is like jaise news mai neecha new chlti rhi hai uss type ka

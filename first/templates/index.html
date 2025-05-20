@@ -14,7 +14,12 @@
 
 
 
-    
+    <marquee onmouseover="stop()" onmouseout="start()">
+        {% for term in term %}
+         Please read all the <a>{{term.service_title}}  </a> &nbsp; &nbsp; &nbsp; 
+        {% endfor %}
+
+    </marquee>
 
         {% include "footer.html" %}
     </body>
