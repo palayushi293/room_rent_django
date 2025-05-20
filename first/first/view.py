@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render # type: ignore
 from service.models import Term
+from service.models import Rent
 from django.core.mail import send_mail
 from django.conf import settings
 
@@ -25,7 +26,13 @@ def home(request):
 
 
 def rentals(request):
-    return render(request, "rental.html")
+    rent=Rent.objects.all()
+
+    data={'rent': rent}
+
+
+
+    return render(request, "rental.html", data)
 
 
 def contact(request):

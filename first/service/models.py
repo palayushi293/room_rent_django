@@ -15,6 +15,12 @@ class Term(models.Model):
     service_des=HTMLField()
 
 
+class Rent(models.Model):
+    adress=models.CharField(max_length=100)
+    bhk=models.CharField(max_length=3)    
+    description=models.CharField(max_length=50)
+
+
 
 # suppose if you want to provide editor html for description so that tage are ther and full editor mode is there then 
 # from tinymce.models import HTMLField
