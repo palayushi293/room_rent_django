@@ -4,6 +4,8 @@ from django.shortcuts import render # type: ignore
 from django.core.mail import send_mail
 from django.conf import settings
 
+from service.models import Service
+
 
 def aboutUs(request):
     return HttpResponse("welcone")
@@ -56,6 +58,10 @@ def book(request):
     return render(request, "book.html")
 
 def story(request):
+
+    Servicedata=Service.objects.all()
+    for a in Servicedata:
+        print(a.service_title)
     return render(request, "story.html")
 
 

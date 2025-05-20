@@ -29,3 +29,6 @@ python manage.py createsuperuser(jb django admin ka pwd nhul jao
 palayushi293@gmail.com
 PALfamily@123
 )
+
+
+thik hai ssb  ho gya ppr utna dikhana jitnaa hai bus uska liya model import in view
