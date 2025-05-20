@@ -26,5 +26,6 @@ urlpatterns = [
     path('contact/',view.contact),
     path('rentals/',view.rentals),
     path('story/',view.story),
-    path('book/',view.book)
+    path('book/',view.book),
+    path('marks/',view.marks)
 ]  

@@ -57,3 +57,27 @@ def book(request):
 
 def story(request):
     return render(request, "story.html")
+
+
+def marks(request):
+    if request.method=='GET':
+        one =int(request.GET.get('sub1', 0))
+        two=int(request.GET.get('sub2' ,0))
+        three=int(request.GET.get('sub3', 0))
+        ans=((one+two+three)/300)*100
+        if ans>=80:
+            p="a+"
+        elif ans<80 and ans>20:
+            p="b"
+        else:
+            p="fail"    
+
+
+        data={'output':ans, 'grade': p}
+
+    return render(request,'marks.html', data)
+    return HttpResponseRedirect('/')
+
+
+
+    
