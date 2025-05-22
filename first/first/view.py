@@ -1,10 +1,13 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render # type: ignore
+from django.shortcuts import render
 from service.models import Term
 from service.models import Rent
 from django.core.mail import send_mail
 from django.conf import settings
-
+# ki mera cars wali detail booking mai aa jae
+from django.shortcuts import render, get_object_or_404
+from django.core.paginator import Paginator
+from service.models import booking
 from service.models import Service
 
 
@@ -28,19 +31,25 @@ def home(request):
 def rentals(request):
     rent=Rent.objects.all()
 
+
+    if request.method=='GET':
+
+
+        k=request.GET.get('search')
+        if k :
+            rent=Rent.objects.filter(adress__icontains=k)
+
     data={'rent': rent}
-
-
 
     return render(request, "rental.html", data)
 
 
 def contact(request):
-    success = False  # Ensure 'success' is always defined
+    success = False 
 
     if request.method == 'GET':
         try:
-            name = request.GET.get('nam', '')   # Make sure your input field is named 'nam'
+            name = request.GET.get('nam', '')   
             email = request.GET.get('email', '')
             msg = request.GET.get('msg', '')
 
@@ -48,7 +57,7 @@ def contact(request):
                 subject = f"New Contact Form Submission from {name}"
                 message = f"Name: {name}\nEmail: {email}\nMessage:\n{msg}"
                 from_email = settings.DEFAULT_FROM_EMAIL
-                recipient_list = ['palayushi293@gmail.com']  # ✅ Corrected email
+                recipient_list = ['palayushi293@gmail.com'] 
 
                 send_mail(subject, message, from_email, recipient_list)
                 success = True
@@ -66,8 +75,31 @@ def contact(request):
 
 
 
-def book(request):
-    return render(request, "book.html")
+def book(request,id):
+    
+    rent = get_object_or_404(Rent, id=id)
+    if request.method=='POST':
+        name=request.POST.get('name')
+        email=request.POST.get('email')
+        phone=request.POST.get('number')
+        adhar=request.POST.get('adhar')
+        date=request.POST.get('date')
+
+        book=booking(
+        
+            name=name,
+            email=email,
+            phone=phone,
+            idproof=adhar,
+            move_Date=date
+        )
+    
+        
+        book.save()
+
+    
+    return render(request, 'book.html', {'rent': rent})
+
 
 def story(request):
 

@@ -47,3 +47,11 @@ in models.py in app (Service)
 
 
 Marquee Tag--> it is like jaise news mai neecha new chlti rhi hai uss type ka
+
+
+pip install django-autoslug
+use of autoslug isthat url mai  automatically about us jaye but  in room rental suppose user click on the certain room detail then slug automatic generate
+
+Pagination means eek tie prr kitni entries dehani hai like in rent particular 3 hi dekhana hia
+import library 
+from django.core.paginator import Paginator in view
