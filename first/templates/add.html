@@ -1,0 +1,28 @@
+
+{% include "header.html" %}
+
+
+
+<form method="POST" style="max-width: 400px; margin: auto; padding: 15px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box;">
+    {% csrf_token %}
+    <h3 style="margin-bottom: 8px; font-family: Arial, sans-serif; color: #333;">Address</h3>
+    <input type="text" name="adress" placeholder="Enter address" 
+           style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #999; border-radius: 4px; box-sizing: border-box;" />
+    
+    <h3 style="margin-bottom: 8px; font-family: Arial, sans-serif; color: #333;">BHK</h3>
+    <input type="number" name="bhk" placeholder="Enter BHK" min="1"
+           style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #999; border-radius: 4px; box-sizing: border-box;" />
+    
+    <h3 style="margin-bottom: 8px; font-family: Arial, sans-serif; color: #333;">Description</h3>
+    <input type="text" name="description" placeholder="Enter description"
+           style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #999; border-radius: 4px; box-sizing: border-box;" />
+    
+    <button type="submit" 
+            style="width: 100%; padding: 12px; background-color: #007BFF; border: none; color: white; font-size: 16px; border-radius: 5px; cursor: pointer;">
+      Submit
+    </button>
+  </form>
+  
+{% include "footer.html" %}
+</body>
+</html>

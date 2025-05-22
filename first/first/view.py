@@ -130,6 +130,25 @@ def marks(request):
     return render(request,'marks.html', data)
     return HttpResponseRedirect('/')
 
+def add(request):
+
+    if request.method=='POST':
+        adress=request.POST.get('adress')
+        bhk=request.POST.get('bhk')
+        description=request.POST.get('description')
+
+        add=Rent(
+            adress=adress,
+            bhk=bhk,
+            description=description
+        )
+
+        add.save()
+    return render(request, 'add.html')    
+
+
+
+
 
 
     

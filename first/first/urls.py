@@ -27,7 +27,8 @@ urlpatterns = [
     path('contact/',view.contact),
     path('rentals/',view.rentals),
     path('story/',view.story),
+    path('add_rooms', view.add),
    
-    path('marks/',view.marks),
+    path('marks/', view.marks),
     path('rentals/book/<int:id>/', view.book,name='booking'),
 ]  
