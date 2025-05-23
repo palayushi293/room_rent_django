@@ -1,9 +1,7 @@
-
+{% load static %}
+<body style="background-image: url({% static 'images/room_Rental6.jpg' %}); background-size: cover;"></body>
 {% include "header.html" %}
-
-
-
-<form method="POST" style="max-width: 400px; margin: auto; padding: 15px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box;">
+<form method="POST" style="background-color: white; max-width: 400px; margin: 150px auto 0 auto; padding: 15px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
     {% csrf_token %}
     <h3 style="margin-bottom: 8px; font-family: Arial, sans-serif; color: #333;">Address</h3>
     <input type="text" name="adress" placeholder="Enter address" 
@@ -21,8 +19,4 @@
             style="width: 100%; padding: 12px; background-color: #007BFF; border: none; color: white; font-size: 16px; border-radius: 5px; cursor: pointer;">
       Submit
     </button>
-  </form>
-  
-{% include "footer.html" %}
-</body>
-</html>
+</form>

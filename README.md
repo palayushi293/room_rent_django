@@ -55,3 +55,6 @@ use of autoslug isthat url mai  automatically about us jaye but  in room rental 
 Pagination means eek tie prr kitni entries dehani hai like in rent particular 3 hi dekhana hia
 import library 
 from django.core.paginator import Paginator in view
+
+
+how to have image file option in databse models

@@ -96,6 +96,7 @@ def book(request,id):
     
         
         book.save()
+        
 
     
     return render(request, 'book.html', {'rent': rent})
