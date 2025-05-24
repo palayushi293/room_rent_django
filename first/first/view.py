@@ -101,17 +101,12 @@ def book(request,id):
 
     
     return render(request, 'book.html', {'rent': rent})
-
-
 def story(request):
-
-    Servicedata=Service.objects.all().order_by('service_title') # for descending ('-service_title')
-    #Servicedata=Service.objects.all().order_by('service_title')[:3] for limit
+    Servicedata = Service.objects.all().order_by('service_title')
     for a in Servicedata:
         print(a.service_title)
-        data={'Servicedata': Servicedata}
-    return render(request, "story.html",data)
-
+    data = {'Servicedata': Servicedata}  # <-- define data here, after loop
+    return render(request, "story.html", data)
 
 def marks(request):
     if request.method=='GET':
