@@ -1,24 +1,22 @@
-
-
-
 {% load static %} 
 
 <header style="background-color:#333; color:white; padding:10px 20px; display:flex; justify-content:space-between; align-items:center;">
-  <div style="font-size:24px; font-weight:bold;">MyLogo</div>
+  
+  <!-- Replace text logo with image logo -->
+  <div>
+    <img src="{% static 'images/Screenshot (37).png' %}" alt="MyLogo" style="height:100px; width:auto;">
+  </div>
 
   <nav id="navbar" style="display:flex; gap:20px;">
     <a href="/rentals" style="color:white; text-decoration:none;">Rentals</a>
-    <a href="/story" style="color:white; text-decoration:none;">Story</a>
+    <a href="/story" style="color:white; text-decoration:none;">Service</a>
     <a href="/add_rooms" style="color:white; text-decoration:none;">Add</a>
     <a href="/contact" style="color:white; text-decoration:none;">Contact</a>
   </nav>
 
-  
   <div onclick="toggleMenu()" style="display:none; flex-direction:column; cursor:pointer;" id="hamburger">
     <span style="width:25px; height:3px; background:white; margin:4px 0;"></span>
     <span style="width:25px; height:3px; background:white; margin:4px 0;"></span>
     <span style="width:25px; height:3px; background:white; margin:4px 0;"></span>
   </div>
 </header>
-
-
