@@ -1,52 +1,79 @@
 {% load static %}
 
-<body style="background-image: url({% static 'images/black-background.jpg' %}); background-size: cover;"></body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rental Listings</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("{% static 'images/black-background.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: white;
+            min-height: 100vh;
+        }
+
+        .card {
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.6);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+        }
+
+        .card-subtitle {
+            color: #6c757d; /* Bootstrap muted color */
+        }
+
+        .search-form {
+            margin: 30px auto;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+
 {% include "header.html" %}
-   
 
-
-
-
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<div> 
-    <form method="get">
-        <input type="text" name="search"/>
-        <button type="submit" class="btn btn-primary mt-2">Search</button>
-    
-        
+<!-- Search Bar -->
+<div class="container search-form">
+    <form method="get" class="d-flex">
+        <input type="text" name="search" class="form-control me-2" placeholder="Search by address...">
+        <button type="submit" class="btn btn-primary">Search</button>
     </form>
 </div>
-<div class="container my-4">
-  <div class="row g-4 justify-content-center">
-    {% for rent in rent %}
-  
-    <div class="col-12 col-sm-6 col-md-4 col-lg-4 d-flex">
-      <div class="card shadow-sm w-100">
-        <div class="card-body">
-          <h5 class="card-title">Address: {{ rent.adress }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">BHK: {{ rent.bhk }}</h6>
-          <p class="card-text">Description: {{ rent.description }}</p>
-        </div>
-        <a href="{% url 'booking' rent.id %}">Book now</a>
-      </div>
+
+<!-- Listings -->
+<div class="container my-5">
+    <div class="row g-4 justify-content-center">
+        {% if rent %}
+            {% for item in rent %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
+                    <div class="card w-100 p-3">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Address: {{ item.adress }}</h5>
+                            <h6 class="card-subtitle mb-2">BHK: {{ item.bhk }}</h6>
+                            <p class="card-text mb-4">Description: {{ item.description }}</p>
+                            <a href="{% url 'booking' item.id %}" class="btn btn-success mt-auto">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="text-center mt-5">No rentals found.</p>
+        {% endif %}
     </div>
-    
-    {% endfor %}
-  </div>
 </div>
 
+{% include "footer.html" %}
 
-
-
-
-
-
-
-
-
-
-    {% include "footer.html" %}
-    
 </body>
 </html>

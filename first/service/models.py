@@ -7,7 +7,7 @@ from tinymce.models import HTMLField
 class Service(models.Model):
     service_title=models.CharField(max_length=60)
     service_description=models.CharField(max_length=180)
-# Create your models here.
+
 
 
 class Term(models.Model):
@@ -19,6 +19,8 @@ class Rent(models.Model):
     adress=models.CharField(max_length=100)
     bhk=models.CharField(max_length=3)    
     description=models.CharField(max_length=50)
+    
+
    # autoslug=AutoSlugField(populate_from ='adress', unique=True, null=True)
     def __str__(self):
         return f"{self.adress} - {self.bhk} BHK"

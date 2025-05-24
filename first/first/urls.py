@@ -18,7 +18,8 @@ from django.contrib import admin
 from django.urls import path
 from . import view
 
-
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('about-us/',view.aboutUs),
@@ -31,4 +32,5 @@ urlpatterns = [
    
     path('marks/', view.marks),
     path('rentals/book/<int:id>/', view.book,name='booking'),
-]  
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

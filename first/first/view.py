@@ -30,6 +30,7 @@ def home(request):
 
 def rentals(request):
     rent=Rent.objects.all()
+    
 
 
     if request.method=='GET':
@@ -137,11 +138,14 @@ def add(request):
         adress=request.POST.get('adress')
         bhk=request.POST.get('bhk')
         description=request.POST.get('description')
+       
 
         add=Rent(
             adress=adress,
             bhk=bhk,
-            description=description
+            description=description,
+            
+            
         )
 
         add.save()
