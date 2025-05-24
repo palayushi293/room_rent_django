@@ -4,7 +4,11 @@ from service.models import Term
 from service.models import Rent
 from django.core.mail import send_mail
 from django.conf import settings
-# ki mera cars wali detail booking mai aa jae
+
+
+#             ki mera cars wali detail booking mai aa jae
+
+
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from service.models import booking
